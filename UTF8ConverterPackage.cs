@@ -129,14 +129,7 @@ namespace PbTheCat.UTF8Converter
                     MessageBox.Show("convert_file:"+ activeFilePath + " code_page:" + defaultReader.CurrentEncoding.CodePage.ToString(), "UTF8Converter");
 
                     var activeFileExt = Path.GetExtension(activeFilePath).ToLower();
-                    if (activeFileExt == ".lua")
-                    {
-                        File.WriteAllText(activeFilePath, defaultText, new UTF8Encoding(true, true));
-                    }
-                    else
-                    {
-                        File.WriteAllText(activeFilePath, defaultText, new UTF8Encoding(false, true));
-                    }
+                    File.WriteAllText(activeFilePath, defaultText, new UTF8Encoding(false, true));
                 }
                 catch (DecoderFallbackException)
                 {
